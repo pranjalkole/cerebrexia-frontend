@@ -10,6 +10,9 @@ import dj from "/cerebrexia/dj.mp4"
 import registerNow from "/cerebrexia/- the Wedding of - (1).png"
 import pexels from "/cerebrexia/pexels-jibarofoto-2091375.jpg"
 import eventimg from "/cerebrexia/pexels-lstan-2147029.jpg"
+import sportsimage from "/images/Rectangle 30-1.png"
+import galleryimage from "/images/actionvance-t7EL2iG3jMc-unsplash 1.png"
+import carousel1 from "/images/Rectangle 32.png"
 import Typewriter from "typewriter-effect";
 enum State {
   Home,
@@ -35,14 +38,14 @@ function Hamburger() {
 
 function Page1({ setState }) {
   const clickHamburger = () => {
-    document.querySelector(".ham").className = "ham absolute flex flex-col h-screen z-10 left-0 bg-cyan-950 w-screen justify-around"
+    document.querySelector(".ham").className = "ham absolute flex flex-col h-screen z-10 left-0 bg-darkbg w-screen justify-around"
   };
   const clickCross = () => {
     document.querySelector(".ham").className = "ham hidden";
   };
   return (
     <div className="min-h-screen relative flex flex-col bg-hero text-white px-4 md:px-24">
-      <div className="hidden md:flex justify-between pt-4">
+      <div className="hidden md:flex z-10 justify-between pt-4">
         <button onClick={() => setState(State.Home)}>Home</button>
         <button onClick={() => setState(State.Registration)}>Registration</button>
         <button onClick={() => setState(State.Events)}>Events</button>
@@ -96,7 +99,7 @@ function BigBox( {number, string }) {
 
 function Page2() {
   return (
-    <div className="bg-cyan-950 px-40 text-white py-8">
+    <div className="bg-cyan-950 px-40 text-white py-8 bg-lightbg">
       <h1 className="font-bold text-4xl">The Madness Unfolds In :</h1>
       <div className="flex justify-around text-white items-center gap-4 text-5xl">
         <BigBox number="3" string="Months" />
@@ -166,12 +169,12 @@ function Page5() {
 
 function EventCard({ imageUrl, heading, text }) {
   return (
-    <div class="rounded bg-black">
-      <img src={imageUrl} class="w-full rounded" />
+    <div class="rounded-xl bg-textbox">
+      <img src={imageUrl} class="w-full rounded-xl" />
       <div class="m-4">
         <h1 class="text-xl font-bold">{heading}</h1>
         <p>{text}</p>
-        <button class="bg-blue-500 w-full py-1 rounded-lg">Register Now</button>
+        <button class="bg-button w-full py-1 rounded-lg">Register Now</button>
       </div>
     </div>
   );
@@ -179,9 +182,9 @@ function EventCard({ imageUrl, heading, text }) {
 
 function Page6() {
   return (
-    <div class="bg-cyan-950 text-white">
+    <div class="bg-lightbg text-white">
       <h1 class="text-8xl text-center">Events</h1>
-      <hr />
+      <hr class="text-white" />
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
         <EventCard imageUrl={pexels} heading="Cultural Competitions" text="Cultural events and competitions to showcase your talents and present yourself" />
         <EventCard imageUrl={pexels} heading="Cultural Competitions" text="Cultural events and competitions to showcase your talents and present yourself" />
@@ -195,7 +198,7 @@ function Page6() {
 
 function Footer({ setState }) {
   return (
-    <div class="bg-cyan-900 text-white py-12 flex justify-center">
+    <div class="bg-darkbg text-white py-12 flex justify-center">
       <div class="inline-flex flex-col">
         <div class="flex gap-8">
           <div class="border-r border-white">
@@ -217,9 +220,9 @@ function Footer({ setState }) {
           </iframe>
           <div class="flex flex-col gap-2">
             <h1 class="text-2xl font-bold">Having a Problem?</h1>
-            <input placeholder="Email ID" class="bg-black rounded p-2" />
-            <textarea placeholder="Write Your Query" class="bg-black rounded p-2" />
-            <button class="bg-blue-500 w-full py-1 rounded-lg">Submit</button>
+            <input placeholder="Email ID" class="bg-textbox border border-placeholder placeholder:text-placeholder rounded p-2" />
+            <textarea placeholder="Write Your Query" class="bg-textbox border border-placeholder placeholder:text-placeholder rounded p-2" />
+            <button class="bg-button w-full py-1 rounded-lg">Submit</button>
           </div>
         </div>
         <div class="flex justify-between font-bold">
@@ -262,7 +265,20 @@ function Event({ name, desc, button, onClick }) {
       <div class="basis-3/4 text-white">
         <h1 class="text-4xl">{name}</h1>
         <p>{desc}</p>
-        <button class="bg-blue-500 w-full py-1 rounded-lg" onClick={onClick}>{button}</button>
+        <button class="bg-button w-full py-1 rounded-lg" onClick={onClick}>{button}</button>
+      </div>
+    </div>
+  );
+}
+
+function SponsorCard({ head, sub }) {
+  return (
+    <div class="basis-1/3 flex border border-white rounded-xl bg-button p-4 items-center justify-between">
+      <div class="flex flex-col">
+        <h1>{head}</h1>
+        <p>{sub}</p>
+      </div>
+      <div class="bg-white rounded-full w-24 h-24">
       </div>
     </div>
   );
@@ -272,9 +288,9 @@ function Body({ state, setState }) {
   const [registrationState, setRegistrationState] = useState(0);
   if (state == State.Registration) {
     return (
-      <div class="min-h-screen flex">
+      <div class="min-h-screen flex border-b border-white">
         <img src={registerNow} class="basis-0 grow w-0" />
-        <div class="basis-0 grow w-0 border-l border-white bg-cyan-950">
+        <div class="basis-0 grow w-0 border-l border-white bg-darkbg">
           <div class="px-16 py-8 text-white flex flex-col gap-4">
           {registrationState == 0
             ?
@@ -283,89 +299,90 @@ function Body({ state, setState }) {
               <p>You can reach us anytime via <a>Your@gmail.com</a></p>
               <div>
                 <p>Name</p>
-                <input placeholder="Email ID" class="bg-black rounded p-2 w-full" />
+                <input placeholder="Email ID" class="bg-textbox border border-placeholder placeholder:text-placeholder rounded p-2 w-full" />
               </div>
               <div>
-              <p>Email</p>
-              <input placeholder="Email ID" class="bg-black rounded p-2 w-full" />
+                <p>Email</p>
+                <input placeholder="Email ID" class="bg-textbox border border-placeholder placeholder:text-placeholder rounded p-2 w-full" />
               </div>
               <div>
-              <p>Phone number</p>
-              <input placeholder="Email ID" class="bg-black rounded p-2 w-full" />
+                <p>Phone number</p>
+                <input placeholder="Email ID" class="bg-textbox border border-placeholder placeholder:text-placeholder rounded p-2 w-full" />
               </div>
               <div>
-              <p>College Name</p>
-              <input placeholder="Email ID" class="bg-black rounded p-2 w-full" />
+                <p>College Name</p>
+                <input placeholder="Email ID" class="bg-textbox border border-placeholder placeholder:text-placeholder rounded p-2 w-full" />
               </div>
-              <button class="bg-blue-500 w-full py-1 rounded-lg" onClick={() => setRegistrationState(1)}>Get started</button>
+              <button class="bg-button w-full py-1 rounded-lg" onClick={() => setRegistrationState(1)}>Get started</button>
             </>
             :
             <>
               <div>
               <p>Number of Participants</p>
-              <input placeholder="Email ID" class="bg-black rounded p-2 w-full" />
+              <input placeholder="Email ID" class="bg-textbox border border-placeholder placeholder:text-placeholder rounded p-2 w-full" />
               </div>
               <div>
               <p>Name of the Participant 1</p>
-              <input placeholder="Email ID" class="bg-black rounded p-2 w-full" />
+              <input placeholder="Email ID" class="bg-textbox border border-placeholder placeholder:text-placeholder rounded p-2 w-full" />
               </div>
               <div>
               <p>Email ID</p>
-              <input placeholder="Email ID" class="bg-black rounded p-2 w-full" />
+              <input placeholder="Email ID" class="bg-textbox border border-placeholder placeholder:text-placeholder rounded p-2 w-full" />
               </div>
               <div>
               <p>Name of the Participant 1</p>
-              <input placeholder="Email ID" class="bg-black rounded p-2 w-full" />
+              <input placeholder="Email ID" class="bg-textbox border border-placeholder placeholder:text-placeholder rounded p-2 w-full" />
               </div>
               <div>
               <p>Email ID</p>
-              <input placeholder="Email ID" class="bg-black rounded p-2 w-full" />
+              <input placeholder="Email ID" class="bg-textbox border border-placeholder placeholder:text-placeholder rounded p-2 w-full" />
               </div>
               <div>
               <p>Course UG/PG</p>
-              <input placeholder="Email ID" class="bg-black rounded p-2 w-full" />
+              <input placeholder="Email ID" class="bg-textbox border border-placeholder placeholder:text-placeholder rounded p-2 w-full" />
               </div>
-              <button class="bg-blue-500 w-full py-1 rounded-lg" onClick={() => setRegistrationState(0)}>Proceed to Payment</button>
+              <button class="bg-button w-full py-1 rounded-lg" onClick={() => setRegistrationState(0)}>Proceed to Payment</button>
             </>
           }
-        </div>
-
+          </div>
         </div>
       </div>
     );
   } else if (state == State.Events) {
     return (
       <>
-        <div class="bg-events">
-          <h1 class="w-1/2 text-9xl text-white">Showcase Your TALENTS In The EVENTS Held In CEREBREXIA</h1>
+        <div class="py-24 flex items-center bg-events">
+          <h1 class="w-1/2 text-8xl text-white">Showcase Your TALENTS In The EVENTS Held In CEREBREXIA</h1>
         </div>
-        <hr />
-        <div class="flex gap-2 bg-cyan-950 py-4">
-          <div class="bg-white basis-3/4 flex relative">
-            <div class="basis-3/4">
-              <h1>Join Us On This Fun Fiesta</h1>
-              <button>Register Now</button>
+        <hr class="text-white" />
+        <div class="flex gap-2 bg-lightbg py-12 px-4">
+          <div class="bg-white basis-3/4 flex relative rounded-lg">
+            <div class="basis-3/4 bg-white px-4 flex flex-col justify-center items-center gap-4">
+              <h1 class="text-darkbg text-4xl font-bold">Join Us On This Fun Fiesta</h1>
+              <button class="w-full bg-darkbg text-white py-2 rounded-lg">Register Now</button>
             </div>
             <div class="w-1/4 absolute bottom-0 right-0">
               <img src={logo} class="overflow-visible" />
             </div>
           </div>
-          <div class="basis-1/4 border border-white">Join Us On This Fun Fiesta</div>
+          <div class="basis-1/4 border border-white rounded-lg">
+            <p class="text-white px-2 py-4 font-bold">Unleash your Potential: From cultural showcases to sports competitions and educational events, Cerebrexia offers a platform to develop creativity, athleticism, and intellect.</p>
+          </div>
         </div>
-        <hr />
-        <div class="bg-cyan-950">
-          <h1>EVENTS</h1>
+        <hr class="text-white" />
+        <div class="bg-darkbg">
+          <h1 class="text-6xl text-white font-bold">EVENTS</h1>
           <div class="flex flex-col gap-4">
             <Event name="Proshows" desc="Get ready to be blown away at the ProShow - the ultimate spectacle of talent and entertainment at our fest!" button="Register Now" />
-            <hr />
+            <hr class="text-white" />
             <Event name="Cultural Competitions" desc="Get ready to be blown away at the ProShow - the ultimate spectacle of talent and entertainment at our fest!" button="Checkout The Events" onClick={() => setState(State.Cultural)} />
-            <hr />
+            <hr class="text-white" />
             <Event name="Sports" desc="Get ready to be blown away at the ProShow - the ultimate spectacle of talent and entertainment at our fest!" button="Register Now" onClick={() => setState(State.Sports)} />
-            <hr />
+            <hr class="text-white" />
             <Event name="Educational" desc="Get ready to be blown away at the ProShow - the ultimate spectacle of talent and entertainment at our fest!" button="Register Now" onClick={() => setState(State.Educational)} />
-            <hr />
+            <hr class="text-white" />
             <Event name="Informal" desc="Get ready to be blown away at the ProShow - the ultimate spectacle of talent and entertainment at our fest!" button="Register Now" onClick={() => setState(State.Informal)} />
-            <hr />
+            <hr class="text-white" />
           </div>
         </div>
       </>
@@ -373,11 +390,11 @@ function Body({ state, setState }) {
   } else if (state == State.Cultural) {
     return (
       <>
-        <div class="min-h-screen">
+        <div class="min-h-screen bg-cultural">
           <h1 class="text-9xl">CULTURAL EVENTS</h1>
         </div>
-        <div>
-          <h2>Cerebrexia organizes varous cultural events promoting the cultural integrity</h2>
+        <div class="bg-darkbg">
+          <h2 class="text-white">Cerebrexia organizes varous cultural events promoting the cultural integrity</h2>
           <div class="grid grid-cols-4 gap-4">
             <EventCard imageUrl={pexels} heading="Cultural Competitions" text="Cultural events and competitions to showcase your talents and present yourself" />
             <EventCard imageUrl={pexels} heading="Cultural Competitions" text="Cultural events and competitions to showcase your talents and present yourself" />
@@ -389,7 +406,7 @@ function Body({ state, setState }) {
             <EventCard imageUrl={pexels} heading="Cultural Competitions" text="Cultural events and competitions to showcase your talents and present yourself" />
           </div>
         </div>
-        <div>
+        <div class="bg-culturalimage">
           <h1>CEREBREXIA</h1>
         </div>
       </>
@@ -397,10 +414,10 @@ function Body({ state, setState }) {
   } else if (state == State.Sports) {
     return (
       <>
-        <div class="min-h-screen">
-          <h1 class="text-9xl">CULTURAL EVENTS</h1>
+        <div class="min-h-screen bg-sports">
+          <h1 class="text-9xl">SPORTS EVENTS</h1>
         </div>
-        <div>
+        <div class="bg-darkbg">
           <h2>Cerebrexia organizes varous cultural events promoting the cultural integrity</h2>
           <div class="grid grid-cols-4 gap-4">
             <EventCard imageUrl={pexels} heading="Cultural Competitions" text="Cultural events and competitions to showcase your talents and present yourself" />
@@ -413,15 +430,18 @@ function Body({ state, setState }) {
             <EventCard imageUrl={pexels} heading="Cultural Competitions" text="Cultural events and competitions to showcase your talents and present yourself" />
           </div>
         </div>
-        <div>
-          <h1>CEREBREXIA</h1>
+        <div class="flex">
+          <div class="inline-block relative">
+            <img src={sportsimage} />
+            <div class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center"><h1 class="text-white text-3xl">CEREBREXIA</h1></div>
+          </div>
         </div>
       </>
     );
   } else if (state == State.Educational) {
     return (
       <>
-        <div class="min-h-screen">
+        <div class="min-h-screen bg-educational">
           <h1 class="text-9xl">CULTURAL EVENTS</h1>
         </div>
         <div>
@@ -437,7 +457,7 @@ function Body({ state, setState }) {
             <EventCard imageUrl={pexels} heading="Cultural Competitions" text="Cultural events and competitions to showcase your talents and present yourself" />
           </div>
         </div>
-        <div>
+        <div class="bg-educationalimage">
           <h1>CEREBREXIA</h1>
         </div>
       </>
@@ -445,7 +465,7 @@ function Body({ state, setState }) {
   } else if (state == State.Informal) {
     return (
       <>
-        <div class="min-h-screen">
+        <div class="min-h-screen bg-educational">
           <h1 class="text-9xl">CULTURAL EVENTS</h1>
         </div>
         <div>
@@ -461,8 +481,99 @@ function Body({ state, setState }) {
             <EventCard imageUrl={pexels} heading="Cultural Competitions" text="Cultural events and competitions to showcase your talents and present yourself" />
           </div>
         </div>
-        <div>
+        <div class="bg-informalimage">
           <h1>CEREBREXIA</h1>
+        </div>
+      </>
+    );
+  } else if (state == State.Gallery) {
+    return (
+      <>
+        <div class="flex bg-darkbg">
+          <div class="inline-block relative">
+            <img src={galleryimage} />
+            <div class="absolute top-0 left-0 right-0 bottom-0"><h1 class="text-white text-center text-[15rem] font-bold">GALLERY</h1></div>
+          </div>
+        </div>
+        <hr class="text-white" />
+        <div class="bg-darkbg">
+          <h1 class="font-league text-[20rem] text-center text-white">OUR LEGACY</h1>
+          <img src={carousel1} class="w-full px-4" />
+          <div class="flex justify-center gap-2">
+            <div class="w-24 aspect-square bg-placeholder"></div> 
+            <div class="w-24 aspect-square bg-placeholder"></div> 
+            <div class="w-24 aspect-square bg-placeholder"></div> 
+            <div class="w-24 aspect-square bg-placeholder"></div> 
+            <div class="w-24 aspect-square bg-placeholder"></div> 
+          </div>
+          <div class="grid grid-cols-4 gap-4 p-4">
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+          </div>
+        </div>
+      </>
+    );
+  } else if (state == State.Sponsors) {
+    return (
+      <>
+        <div class="flex bg-darkbg">
+          <div class="inline-block relative">
+            <img src={galleryimage} />
+            <div class="absolute top-0 left-0 right-0 bottom-0">
+              <div class="h-full flex flex-col justify-between">
+                <h1 class="text-white text-center text-[12rem] font-bold">SPONSORS</h1>
+                <div class="flex justify-between gap-4 px-4">
+                  <SponsorCard head="Title Sponsor" sub="Name of the Brand" />
+                  <SponsorCard head="Title Sponsor" sub="Name of the Brand" />
+                  <SponsorCard head="Title Sponsor" sub="Name of the Brand" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="text-white" />
+        <div class="bg-darkbg">
+          <h1 class="font-league text-[20rem] text-center text-white">OUR LEGACY</h1>
+          <img src={carousel1} class="w-full px-4" />
+          <div class="flex justify-center gap-2">
+            <div class="w-24 aspect-square bg-placeholder"></div> 
+            <div class="w-24 aspect-square bg-placeholder"></div> 
+            <div class="w-24 aspect-square bg-placeholder"></div> 
+            <div class="w-24 aspect-square bg-placeholder"></div> 
+            <div class="w-24 aspect-square bg-placeholder"></div> 
+          </div>
+          <div class="grid grid-cols-4 gap-4 p-4">
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+            <div class="aspect-square bg-placeholder"></div> 
+          </div>
         </div>
       </>
     );
@@ -474,22 +585,22 @@ function Body({ state, setState }) {
 }
 
 function App() {
-  const [state, setState] = useState(State.Home);
+  const [state, setState] = useState(State.Sponsors);
   if (state == State.Home) {
     return (
       <div class="font-montserrat">
         <Page1 setState={setState} />
-        <hr />
+        <hr class="text-white" />
         <Page2 />
-        <hr />
+        <hr class="text-white" />
         <Page3 />
-        <hr />
+        <hr class="text-white" />
         <Page4 />
-        <hr />
+        <hr class="text-white" />
         <Page5 />
-        <hr />
+        <hr class="text-white" />
         <Page6 />
-        <hr />
+        <hr class="text-white" />
         <Footer setState={setState} />
       </div>
     );
