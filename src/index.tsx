@@ -68,16 +68,18 @@ function Page1({ setState }) {
       <button class="self-end md:hidden" onClick={clickHamburger}>
         <Hamburger />
       </button>
-      <h1 className="text-center text-8xl md:text-[20rem] font-league"><Typewriter
-  options={{
-    strings: ['CEREBREXIA'],
-    autoStart: true,
-    loop: true,
-  }}
-/></h1>
+      <h1 className="text-center text-8xl md:text-[20rem] font-league">
+        <Typewriter
+          options={{
+            strings: ['CEREBREXIA'],
+            autoStart: true,
+            loop: true,
+          }}
+        />
+      </h1>
       <div className="flex flex-col gap-4 md:gap-0 md:flex-row justify-between">
-        <button class="rounded-full border border-white px-8 py-1 text-xl">Register Now</button>
-        <button class="rounded-full border border-white px-8 py-1 text-xl">View Events</button>
+        <button class="rounded-[44px] border border-[#B0A2A2] bg-[#d9d9d9]/[.10] backdrop-blur-[5.6px] px-8 py-1 text-xl">Register Now</button>
+        <button class="rounded-[44px] border border-[#B0A2A2] bg-[#d9d9d9]/[.10] backdrop-blur-[5.6px] px-8 py-1 text-xl">View Events</button>
       </div>
       <div class="self-center absolute bottom-0 h-full flex">
         <div class="inline-flex justify-center items-end">
@@ -90,7 +92,7 @@ function Page1({ setState }) {
 
 function BigBox( {number, string }) {
   return (
-    <div className="border rounded border-white aspect-[4/3] rounded-lg text-white text-center flex flex-col justify-center basis-0 grow">
+    <div className="border-2 rounded border-white aspect-[4/3] rounded-lg text-white text-center flex flex-col justify-center basis-0 grow">
       <h1 class="font-bold">{number}</h1>
       <h1>{string}</h1>
     </div>
@@ -99,7 +101,7 @@ function BigBox( {number, string }) {
 
 function Page2() {
   return (
-    <div className="bg-cyan-950 px-40 text-white py-8 bg-lightbg">
+    <div className="px-40 text-white py-8 bg-lightbg flex flex-col gap-8">
       <h1 className="font-bold text-4xl">The Madness Unfolds In :</h1>
       <div className="flex justify-around text-white items-center gap-4 text-5xl">
         <BigBox number="3" string="Months" />
@@ -114,12 +116,20 @@ function Page2() {
 
 function Page3() {
   return (
-    <div class="relative text-white">
+    <div class="relative bg-darkbg text-white">
       <video autoPlay loop class="w-full h-full object-cover z-0 absolute">
         <source src={dj} />
       </video>
       <div class="relative z-10 text-center py-8 px-24">
-        <h1 class="text-4xl font-bold">What Is CEREBREXIA?</h1>
+        <h1 class="text-4xl font-bold">
+          <Typewriter
+            options={{
+              strings: ['What Is CEREBREXIA?'],
+              autoStart: true,
+              loop: true,
+            }}
+          />
+        </h1>
         <p class="text-xl">IGIMS brings you the first of its kind socio-cultural festival amongst medical fraternity on the Land of Buddha, the place which not only gave INDIA but also the world the brightest of the brains, where the igniting minds will meet. To experience the everlasting thrill of unlimited music, dance, drama, entertainment amalgamated with the essence of knowledge and culture. A platform which would not only englighten, but would also give an excellent opportunity to interact with best brains of the country from senior doctors to renowned dignitaries and tycoons.</p>
       </div>
     </div>
@@ -128,17 +138,17 @@ function Page3() {
 
 function Page4() {
   return (
-    <div class="relative text-white">
+    <div class="relative bg-darkbg text-white">
       <video autoPlay loop class="w-full h-full object-cover z-0 absolute">
         <source src={video2} />
       </video>
-      <div class="relative z-10 py-8 px-24">
+      <div class="relative flex flex-col gap-8 z-10 py-8 px-24">
         <h1 class="text-4xl font-bold">The Theme of 2024</h1>
-        <div class="flex">
-          <img src={two} />
-          <div>
-            <p class="text-xl">IGIMS brings you the first of its kind socio-cultural festival amongst medical fraternity on the Land of Buddha, the place which not only gave INDIA but also the world the brightest of the brains, where the igniting minds will meet. To experience the everlasting thrill of unlimited music, dance, drama, entertainment amalgamated with the essence of knowledge and culture. A platform which would not only englighten, but would also give an excellent opportunity to interact with best brains of the country from senior doctors to renowned dignitaries and tycoons.</p>
-            <button class="bg-blue-500 w-full py-1 rounded-lg">Register Now</button>
+        <div class="flex gap-4">
+          <img src={two} class="object-scale-down" />
+          <div class="flex flex-col gap-4">
+            <p class="text-3xl">Cerebrexia is a grand festival that invites attendees to embark on an interstellar journey through the cosos, celebrating the wonders of space, the mysteries of the universe, and the fascinating possibility of extraterrestrial life. The highlight of the fest is the visit from the Alien Empress, a benevolent and wise ruler from a distant galaxy, who graces Earth with her presence to share cosmic wisdom and celebrate with humankind</p>
+            <button class="bg-button w-full py-2 rounded-lg font-bold">Register Now</button>
           </div>
         </div>
       </div>
@@ -148,18 +158,18 @@ function Page4() {
 
 function Page5() {
   return (
-    <div class="relative text-white">
+    <div class="relative bg-darkbg text-white">
       <video autoPlay loop class="w-full h-full object-cover z-0 absolute">
         <source src={video1} />
       </video>
-      <div class="relative z-10 py-8 px-24">
-        <h1 class="text-4xl font-bold">The Theme of 2024</h1>
-        <div class="flex">
-          <div>
+      <div class="relative flex flex-col gap-8 z-10 py-8 px-24">
+        <h1 class="text-4xl text-right font-bold">About Indira Gandhi Institute of Medical Science</h1>
+        <div class="flex gap-4">
+          <div class="flex flex-col gap-4">
             <p class="text-xl">IGIMS brings you the first of its kind socio-cultural festival amongst medical fraternity on the Land of Buddha, the place which not only gave INDIA but also the world the brightest of the brains, where the igniting minds will meet. To experience the everlasting thrill of unlimited music, dance, drama, entertainment amalgamated with the essence of knowledge and culture. A platform which would not only englighten, but would also give an excellent opportunity to interact with best brains of the country from senior doctors to renowned dignitaries and tycoons.</p>
-            <button class="bg-blue-500 w-full py-1 rounded-lg">Visit The Website</button>
+            <button class="bg-button w-full py-2 rounded-lg">Visit The Website</button>
           </div>
-          <img src={three} />
+          <img src={three} class="object-scale-down" />
         </div>
       </div>
     </div>
@@ -240,7 +250,7 @@ function Footer({ setState }) {
 
 function Header({ setState }) {
   return (
-    <div class="flex justify-between px-4 bg-hero text-white">
+    <div class="flex justify-between px-4 py-2 bg-hero text-white">
       <div>
         <h1>CEREBREXIA</h1>
       </div>
@@ -273,9 +283,9 @@ function Event({ name, desc, button, onClick }) {
 
 function SponsorCard({ head, sub }) {
   return (
-    <div class="basis-1/3 flex border border-white rounded-xl bg-button p-4 items-center justify-between">
+    <div class="basis-1/3 flex border border-white text-white bg-[#d9d9d9]/[.06] rounded-[44px] backdrop-blur-[87.15px] p-4 items-center justify-between">
       <div class="flex flex-col">
-        <h1>{head}</h1>
+        <h1 class="text-xl font-bold">{head}</h1>
         <p>{sub}</p>
       </div>
       <div class="bg-white rounded-full w-24 h-24">
@@ -545,35 +555,10 @@ function Body({ state, setState }) {
             </div>
           </div>
         </div>
-        <hr class="text-white" />
-        <div class="bg-darkbg">
-          <h1 class="font-league text-[20rem] text-center text-white">OUR LEGACY</h1>
-          <img src={carousel1} class="w-full px-4" />
-          <div class="flex justify-center gap-2">
-            <div class="w-24 aspect-square bg-placeholder"></div> 
-            <div class="w-24 aspect-square bg-placeholder"></div> 
-            <div class="w-24 aspect-square bg-placeholder"></div> 
-            <div class="w-24 aspect-square bg-placeholder"></div> 
-            <div class="w-24 aspect-square bg-placeholder"></div> 
-          </div>
-          <div class="grid grid-cols-4 gap-4 p-4">
-            <div class="aspect-square bg-placeholder"></div> 
-            <div class="aspect-square bg-placeholder"></div> 
-            <div class="aspect-square bg-placeholder"></div> 
-            <div class="aspect-square bg-placeholder"></div> 
-            <div class="aspect-square bg-placeholder"></div> 
-            <div class="aspect-square bg-placeholder"></div> 
-            <div class="aspect-square bg-placeholder"></div> 
-            <div class="aspect-square bg-placeholder"></div> 
-            <div class="aspect-square bg-placeholder"></div> 
-            <div class="aspect-square bg-placeholder"></div> 
-            <div class="aspect-square bg-placeholder"></div> 
-            <div class="aspect-square bg-placeholder"></div> 
-            <div class="aspect-square bg-placeholder"></div> 
-            <div class="aspect-square bg-placeholder"></div> 
-            <div class="aspect-square bg-placeholder"></div> 
-            <div class="aspect-square bg-placeholder"></div> 
-          </div>
+        <div class="bg-darkbg flex flex-col justify-center items-center">
+          <h1>Title Sponsor</h1>
+          <div class="w-40 h-40 bg-white"></div>
+          <p>Name of the Brand</p>
         </div>
       </>
     );
@@ -585,12 +570,11 @@ function Body({ state, setState }) {
 }
 
 function App() {
-  const [state, setState] = useState(State.Sponsors);
+  const [state, setState] = useState(State.Home);
   if (state == State.Home) {
     return (
       <div class="font-montserrat">
         <Page1 setState={setState} />
-        <hr class="text-white" />
         <Page2 />
         <hr class="text-white" />
         <Page3 />
