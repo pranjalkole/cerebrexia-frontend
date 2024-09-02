@@ -450,7 +450,7 @@ function Body({ state, setState }) {
 			</tr>
 			<tr>
 				<td></td>
-				<td><INPUT TYPE="submit" value="Checkout"></td>
+				<td><input type="submit" value="Checkout" /></td>
 			</tr>
 		</table>
 	</form>
