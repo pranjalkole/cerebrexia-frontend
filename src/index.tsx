@@ -297,6 +297,7 @@ function Body({ state, setState }) {
         <input type="text" name="merchant_id" id="merchant_id" value="2797244" />
       <input type="text" name="currency" value="INR" />
       <input type="text" name="amount" value="1.00" />
+      <button>Submit</button>
       </form>
         <img src={registerNow} className="basis-0 grow w-0" />
         <div className="basis-0 grow w-0 border-l border-white bg-darkbg">
