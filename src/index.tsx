@@ -293,7 +293,7 @@ function Body({ state, setState }) {
   if (state == State.Registration) {
     return (
       <div className="min-h-screen flex border-b border-white">
-      	<form method="POST" name="customerData" action="https://api.cerebrexia2024igimspatna.com/ccavRequestHandler">
+      	<form method="POST" name="customerData" action="/ccavRequestHandler">
 		<table width="40%" height="100" border='1' align="center">
 			<caption>
 				<font size="4" color="blue"><b>Integration Kit</b></font>
@@ -326,13 +326,13 @@ function Body({ state, setState }) {
 			<tr>
 				<td>Redirect URL</td>
 				<td><input type="text" name="redirect_url"
-					value="http://192.168.2.49:8085/ccavResponseHandler" />
+					value="https://cerebrexia2024igimspatna.com/ccavResponseHandler" />
 				</td>
 			</tr>
 			<tr>
 				<td>Cancel URL</td>
 				<td><input type="text" name="cancel_url"
-					value="http://192.168.2.49:8085/ccavResponseHandler" />
+					value="https://cerebrexia2024igimspatna.com/ccavResponseHandler" />
 				</td>
 			</tr>
 			<tr>
